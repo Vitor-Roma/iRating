@@ -21,3 +21,4 @@ driver.get(page)
 #     highlights_detail = highlights_detail.text
 menu = WebDriverWait(driver, 50).until(EC.presence_of_all_elements_located((By.CLASS_NAME, 'restaurant-menu-group')))
 
+# teste aqui pra ver se o commit ta funcionando
