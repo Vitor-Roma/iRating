@@ -28,3 +28,11 @@
 - Celery
 - Upload de arquivos
 - Testes
+
+## Entidades
+
+- Cidades
+- Restaurante (com link)
+- Produto
+- Avaliações e notas
+- Usuários
