@@ -35,4 +35,5 @@
 - Restaurante (com link)
 - Produto
 - Avaliações e notas
-- Usuários
+- Perfil
+- Wishlist
