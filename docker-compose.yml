@@ -32,27 +32,19 @@ services:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
     ports:
-      - "5671:5672"
-
-  celery:
-    container_name: celery
-    build: .
-    command: celery -A iRating worker -l INFO
-    volumes:
-      - .:/usr/src/app
-    environment:
-      - CELERY_BROKER=amqp://guest@rabbitmq//
-      - CELERY_BACKEND=redis://redis:6379/0
-    depends_on:
-      - redis
+      - "5672:5672"
 
   redis:
     container_name: redis
     image: 'redis:alpine'
+    ports:
+      - "6379:6379"
 
   flower:
     container_name: flower
     build: .
+    volumes:
+      - ./:/usr/src/app
     command: celery $app $tasks flower
     ports:
       - "5556:5555"
@@ -61,7 +53,6 @@ services:
       - CELERY_BACKEND=redis://redis:6379/0
     depends_on:
       - rabbitmq
-      - celery
 
   elasticsearch:
     container_name: elasticsearch
@@ -85,7 +76,6 @@ services:
       - .:/usr/src/app
     depends_on:
       - rabbitmq
-      - celery
 
 volumes:
   irating_data:

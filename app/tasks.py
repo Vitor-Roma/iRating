@@ -50,33 +50,33 @@ def find_products(menu_items, driver, page):
     for items in menu_items:
         sleep(2)
         try:
-            item_name = WebDriverWait(items, 20).until(EC.presence_of_element_located((By.TAG_NAME, 'h3')))
+            item_name = WebDriverWait(items, 100).until(EC.presence_of_element_located((By.TAG_NAME, 'h3')))
         except:
             item_name = 'name not found'
         try:
-            item_detail = WebDriverWait(items, 20).until(EC.presence_of_element_located((By.CLASS_NAME, 'dish-card__details')))
+            item_detail = WebDriverWait(items, 100).until(EC.presence_of_element_located((By.CLASS_NAME, 'dish-card__details')))
             if item_detail == '':
                 item_detail = item_name
         except:
             item_detail = item_name
         try:
-            item_price2 = WebDriverWait(items, 20).until(EC.presence_of_element_located((By.CLASS_NAME, 'dish-card__price')))
+            item_price2 = WebDriverWait(items, 100).until(EC.presence_of_element_located((By.CLASS_NAME, 'dish-card__price')))
             item_price = item_price2.text
             item_price = re.sub('[^0-9,]', "", item_price)
             item_price = item_price[:5]
         except:
             item_price = ''
         try:
-            item_image_link = WebDriverWait(items, 20).until(EC.presence_of_element_located((By.TAG_NAME, 'img')))
+            item_image_link = WebDriverWait(items, 100).until(EC.presence_of_element_located((By.TAG_NAME, 'img')))
             item_image = item_image_link.get_attribute('src')
         except:
             item_image = ''
         try:
-            restaurant_name = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, 'h1')))
+            restaurant_name = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.TAG_NAME, 'h1')))
         except:
             restaurant_name = 'name not found'
         try:
-            restaurant_image_link = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, 'merchant-info__logo')))
+            restaurant_image_link = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.CLASS_NAME, 'merchant-info__logo')))
             restaurant_image = restaurant_image_link.get_attribute('src')
         except:
             restaurant_image = ''
@@ -89,6 +89,7 @@ def find_products(menu_items, driver, page):
             'restaurant_picture': restaurant_image,
             'link': page,
         }
+        print('pegando: ', product, 'do ', restaurant_name)
         products.append(product)
         if items.text == menu_items[-1].text:
             local = item_name.location
@@ -108,17 +109,17 @@ def scrap_products(page):
     driver.get(page)
     sleep(2)
     all_products = []
-    all_menus = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CLASS_NAME, 'restaurant__fast-menu')))
+    all_menus = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.CLASS_NAME, 'restaurant__fast-menu')))
     local = all_menus.location
     driver.execute_script(f"window.scrollTo(0, {local['y']})")
-    menu_items = WebDriverWait(all_menus, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'li[data-test-id="restaurant-menu-group-item"]')))
+    menu_items = WebDriverWait(all_menus, 100).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'li[data-test-id="restaurant-menu-group-item"]')))
     while True:
         find = False
         products = find_products(menu_items, driver, page)
         for product in products:
             if product['item_name'] not in [p['item_name'] for p in all_products]:
                 all_products.append(product)
-                print('Executando...')
+                print('Pegando: ', product)
                 find = False
             else:
                 find = True
@@ -128,3 +129,4 @@ def scrap_products(page):
 
     for product in all_products:
         save_data(product)
+        print('saving: ', product)
