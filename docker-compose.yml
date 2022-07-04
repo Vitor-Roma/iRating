@@ -14,79 +14,79 @@ services:
 
   postgresdb:
     image: postgres:14.3-alpine
-    container_name: postgres_db
+    container_name: postgresdb
     hostname: postgresdb
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: 'root'
       POSTGRES_PASSWORD: '123'
-      POSTGRES_DB: 'Rating'
+      POSTGRES_DB: 'rating'
     volumes:
-      - postgresql_data:/var/lib/postgresql/data
+      - irating_data:/var/lib/postgresql/data
 
-#  rabbitmq:
-#    container_name: rabbitmq
-#    image: rabbitmq:latest
-#    environment:
-#      - RABBITMQ_DEFAULT_USER=guest
-#      - RABBITMQ_DEFAULT_PASS=guest
-#    ports:
-#      - "5671:5672"
-#
-#  celery:
-#    container_name: celery
-#    build: .
-#    command: celery -A challenge worker -l INFO
-#    volumes:
-#      - .:/usr/src/app
-#    environment:
-#      - CELERY_BROKER=amqp://guest@rabbitmq//
-#      - CELERY_BACKEND=redis://redis:6379/0
-#    depends_on:
-#      - redis
-#
-#  redis:
-#    container_name: redis
-#    image: 'redis:alpine'
-#
-#  flower:
-#    container_name: flower
-#    build: .
-#    command: celery $api $management $commands flower
-#    ports:
-#      - "5556:5555"
-#    environment:
-#      - CELERY_BROKER=amqp://guest@rabbitmq//
-#      - CELERY_BACKEND=redis://redis:6379/0
-#    depends_on:
-#      - rabbitmq
-#      - celery
-#
-#  elasticsearch:
-#    container_name: elasticsearch
-#    image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
-#    ports:
-#      - "9200:9200"
-#      - "9300:9300"
-#    environment:
-#      discovery.type: "single-node"
-#    depends_on:
-#      - application
-#
-#  celery_beat:
-#    container_name: celery_beat
-#    build: .
-#    command: celery -A challenge beat -l INFO
-#    environment:
-#      - CELERY_BROKER=amqp://guest@rabbitmq//
-#      - CELERY_BACKEND=redis://redis:6379/0
-#    volumes:
-#      - .:/usr/src/app
-#    depends_on:
-#      - rabbitmq
-#      - celery
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:latest
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest
+    ports:
+      - "5671:5672"
+
+  celery:
+    container_name: celery
+    build: .
+    command: celery -A iRating worker -l INFO
+    volumes:
+      - .:/usr/src/app
+    environment:
+      - CELERY_BROKER=amqp://guest@rabbitmq//
+      - CELERY_BACKEND=redis://redis:6379/0
+    depends_on:
+      - redis
+
+  redis:
+    container_name: redis
+    image: 'redis:alpine'
+
+  flower:
+    container_name: flower
+    build: .
+    command: celery $app $tasks flower
+    ports:
+      - "5556:5555"
+    environment:
+      - CELERY_BROKER=amqp://guest@rabbitmq//
+      - CELERY_BACKEND=redis://redis:6379/0
+    depends_on:
+      - rabbitmq
+      - celery
+
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.7.0
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      discovery.type: "single-node"
+    depends_on:
+      - irating
+
+  celery_beat:
+    container_name: celery_beat
+    build: .
+    command: celery -A iRating beat -l INFO
+    environment:
+      - CELERY_BROKER=amqp://guest@rabbitmq//
+      - CELERY_BACKEND=redis://redis:6379/0
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - rabbitmq
+      - celery
 
 volumes:
-  postgresql_data:
+  irating_data:
 

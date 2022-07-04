@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block title %} iRating {% endblock %}
+{% block content %}
+<html>
+<body>
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Restaurants</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- /.row -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-tools">
+                                <div class="input-group input-group-sm" style="width: 70%px;">
+                                    <input type="text" name="table_search" class="form-control float-right"
+                                           placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn btn-default">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body table-responsive p-0" style="height: 800px;">
+                            <table class="table table-head-fixed text-nowrap">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Restaurant</th>
+                                    <th>Detail</th>
+                                    <th>Picture</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in product_key %}
+                                <tr>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.restaurant}}</td>
+                                    <td>{{item.detail}}</td>
+                                    <td>{{item.picture}}</td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div>
+            </div>
+            <!-- /.row -->
+
+            <!-- jQuery -->
+            <script src="../../plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap 4 -->
+            <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="../../dist/js/adminlte.min.js"></script>
+            <!-- AdminLTE for demo purposes -->
+            <script src="../../dist/js/demo.js"></script>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,990 @@
+{
+	"info": {
+		"_postman_id": "01acfa8c-fbb0-4a52-a592-c3c2e09e997c",
+		"name": "iRating Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21048717"
+	},
+	"item": [
+		{
+			"name": "Restaurant",
+			"item": [
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/restaurants/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"restaurants",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "link",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/restaurants/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"restaurants",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/restaurants/'ID\"/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"restaurants",
+								"'ID\"",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								},
+								{
+									"key": "link",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/restaurants/\"ID/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"restaurants",
+								"\"ID",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/products/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "restaurant_id",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "detail",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/products/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{token}}/api/products/\"ID\"",
+							"host": [
+								"{{token}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"\"ID\""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "detail",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/products/'ID\"",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"'ID\""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "List",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/profile/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "vitorprofile",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/profile/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "picture",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/profile/\"ID\"/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"\"ID\"",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Review",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/rating/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"rating",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "restaurant_id",
+									"value": "1ba7eddb-c6b0-4efb-8f3c-adce1df9148d",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "13c25ab8-d46b-4f1d-a8a1-b5d2da9de4a4",
+									"type": "text"
+								},
+								{
+									"key": "profile_id",
+									"value": "c2e3c8e7-91bc-4ffb-9861-4421dc1a712d",
+									"type": "text"
+								},
+								{
+									"key": "product_rate",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "complement",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "side_dish",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Hamburger muito bom, mas demorou pra entregar.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/rating/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"rating",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/profile/'ID'/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"profile",
+								"'ID'",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "restaurant_id",
+									"value": "1ba7eddb-c6b0-4efb-8f3c-adce1df9148d",
+									"type": "text"
+								},
+								{
+									"key": "product_id",
+									"value": "13c25ab8-d46b-4f1d-a8a1-b5d2da9de4a4",
+									"type": "text"
+								},
+								{
+									"key": "profile_id",
+									"value": "c2e3c8e7-91bc-4ffb-9861-4421dc1a712d",
+									"type": "text"
+								},
+								{
+									"key": "product_rate",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "size",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "complement",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "side_dish",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "comment",
+									"value": "Hamburger muito bom, mas demorou pra entregar.",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/rating/ccf3f220-3e60-49ed-ad2e-aa81cced58c1/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"rating",
+								"ccf3f220-3e60-49ed-ad2e-aa81cced58c1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Wishlist",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/wishlist/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"wishlist",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "13c25ab8-d46b-4f1d-a8a1-b5d2da9de4a4",
+									"type": "text"
+								},
+								{
+									"key": "profile_id",
+									"value": "c2e3c8e7-91bc-4ffb-9861-4421dc1a712d",
+									"type": "text"
+								},
+								{
+									"key": "note",
+									"value": "Quero comprar esse no final de semana",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/wishlist/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"wishlist",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{URL}}/api/wishlist/\"ID\"/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"wishlist",
+								"\"ID\"",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_id",
+									"value": "13c25ab8-d46b-4f1d-a8a1-b5d2da9de4a4",
+									"type": "text"
+								},
+								{
+									"key": "profile_id",
+									"value": "c2e3c8e7-91bc-4ffb-9861-4421dc1a712d",
+									"type": "text"
+								},
+								{
+									"key": "note",
+									"value": "Quero comprar esse no final do mes",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/wishlist/e0e0c900-87ae-4c1e-818b-3dc491ea7b30/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"wishlist",
+								"e0e0c900-87ae-4c1e-818b-3dc491ea7b30",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login / Sign-up",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"tests[\"Has token\"] = jsonData.access.length > 0 ;",
+									"postman.setEnvironmentVariable(\"token\", jsonData.access);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/login/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sign-up",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "vitor123",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "vitor123@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/sign-up/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"sign-up",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

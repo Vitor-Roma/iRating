@@ -4,7 +4,6 @@ from datetime import timedelta
 import environ
 from celery.schedules import crontab
 
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-tecs=e2gh(szkng+pps5(jau58i5q-kv&al8d^7#m_4sj!lemk'
@@ -14,7 +13,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 env = environ.Env()
 environ.Env.read_env()
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -144,23 +142,26 @@ USE_I18N = True
 
 USE_TZ = True
 
+STATIC_URL = 'staticfiles/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = 'static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "amqp://guest@rabbitmq//")
-# CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://redis:6379/0")
-#
-# ELASTICSEARCH_DSL = {
-#     'default': {
-#         'hosts': 'elasticsearch',
-#         'size': 1000
-#     }
-# }
-#
+CELERY_BROKER_URL = os.environ.get("CELERY_BROKER", "amqp://guest@rabbitmq//")
+CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://redis:6379/0")
+
+ELASTICSEARCH_DSL = {
+    'default': {
+        'hosts': 'elasticsearch',
+        'size': 1000
+    }
+}
+
 # CELERY_BEAT_SCHEDULE = {
-#     "web_srap_books": {
-#         "task": "web_scrap_books",
+#     "web_srap_ifood": {
+#         "task": "web_scrap_ifood",
 #         "schedule": crontab(hour='*/24')
 #     }}
