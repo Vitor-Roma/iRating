@@ -155,8 +155,8 @@ CELERY_RESULT_BACKEND = os.environ.get("CELERY_BACKEND", "redis://redis:6379/0")
 
 ELASTICSEARCH_DSL = {
     'default': {
-        'hosts': 'elasticsearch',
-        'size': 1000
+        'hosts': os.environ.get("ELASTIC_SEARCH_HOST", ""),
+        'size': 1000,
     }
 }
 

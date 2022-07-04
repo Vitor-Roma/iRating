@@ -3,7 +3,7 @@ services:
   worker:
     container_name: worker
     build: .
-    command: celery -A iRating worker -l INFO --concurrency 1
+    command: celery -A iRating worker -l INFO --concurrency 1 -n Vitor
     env_file: iRating/.env
     volumes:
       - .:/usr/src/app
