@@ -9,21 +9,6 @@ services:
       - ./:/usr/src/app
     ports:
       - "8000:8000"
-    depends_on:
-      - postgresdb
-
-  postgresdb:
-    image: postgres:14.3-alpine
-    container_name: postgresdb
-    hostname: postgresdb
-    ports:
-      - "5432:5432"
-    environment:
-      POSTGRES_USER: 'root'
-      POSTGRES_PASSWORD: '123'
-      POSTGRES_DB: 'rating'
-    volumes:
-      - irating_data:/var/lib/postgresql/data
 
   rabbitmq:
     container_name: rabbitmq

@@ -26,6 +26,8 @@ INSTALLED_APPS = [
     'django_filters',
     'django_elasticsearch_dsl',
     'django_elasticsearch_dsl_drf',
+    'storages',
+
 ]
 
 REST_FRAMEWORK = {
@@ -142,11 +144,24 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'staticfiles/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+AWS_CUSTOM_DOMAIN = env('AWS_CUSTOM_DOMAIN')
+AWS_S3_FILE_OVERWRITE = True
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_FILE_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+
+
+STATIC_URL = 'static/'
+MEDIA_URL = f'https://{AWS_CUSTOM_DOMAIN}/media/'
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

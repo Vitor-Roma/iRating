@@ -1,3 +1,6 @@
+all:
+	docker-compose up --build
+	docker-compose -f docker-compose-worker.yml up --build
 build:
 	python3 manage.py makemigrations
 	docker exec irating pip3 install --upgrade pip
