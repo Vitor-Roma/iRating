@@ -48,14 +48,15 @@ Caso seja a primeira vez usando esse container, precisaremos usar o código:
 
 ## Web-Scrapping
 
-<img src=>
+<img src='https://user-images.githubusercontent.com/105290851/192857465-e21e5dab-0e4b-45ec-898c-cae7324c3ead.png'>
 
 - Para escolhar qual restaurante você quer fazer o web-scrap dos produtos, basta apenas colocar o link dele do ifood na 'page_list', localizada em app/management/commands/ifood.py.
 - Pode ser apenas um link, ou uma lista de links, o web-scrapping será feito em toda a lista, seguindo a ordem em que foram colocados.
 
 ## Dashboard
 
-<img src=>
+<img src='https://user-images.githubusercontent.com/105290851/192857452-2d142c18-32b0-4903-a8e1-bda72c1434b8.png'>
+<img src='https://user-images.githubusercontent.com/105290851/192857454-c7f4cffb-d151-44f6-bc71-2cbbb554940a.png'>
 
 - Agora acessamos a Home page, um html básico para mostrar os dados que foram salvos no banco de dados no link: 0.0.0.0:8000
 - Também podemos acessar a lista dos produtos no link '/products' ou clicando em 'products' no dashboard
@@ -68,11 +69,14 @@ Caso seja a primeira vez usando esse container, precisaremos usar o código:
 - make test
 ```
 
-# API End-Points
+## API End-Points
+
+<img src='https://user-images.githubusercontent.com/105290851/192857458-9b73ad74-1e94-4a69-bd62-2bf5e6cf498d.png'>
 
 - Ao usar o postman, você pode importar as Collections e o Environment da pasta Postman para facilitar seu acesso diretamente as APIs
 
-<img src=>
+
+<img src='https://user-images.githubusercontent.com/105290851/192857459-376861b8-8e52-420d-a2ac-e3ca5662648a.png'>
 
 
     0.0.0.0:8000 (Home page)
