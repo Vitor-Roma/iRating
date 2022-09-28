@@ -39,19 +39,19 @@
 - Renomeie seu arquivo '.env_sample' para '.env' para conectar ao banco de dados
 - Abra o terminal na pasta raiz e siga os passos abaixo:
 
-### Caso seja a sua primeira vez usando esse app, vai precisar rodar o comando make all para fazer a instalação e subir os containers.
+- Para fazer a instalação e construção dos containers, use o comando make all
 
 ```
 make all 
 ```
 
-### Depois rodamos o comando make build para fazer as migrates.
+- Depois rode o comando make build para fazer as migrates.
 
 ```
 make build
 ```
 
-### Pronto. Nas proximas vezes, só precisará rodar o comando make run para subir os containers
+- Pronto, tudo instalado. Nas proximas vezes, só precisará rodar o comando make run para subir os containers
 
 ```
 make run
