@@ -29,7 +29,8 @@ Serviço de workers em fila para acelerar o processo do web-scrapping , desta fo
 - Upload de arquivos: 
 Salva as imagens dos produtos e dos restaurantes
 - Testes: 
-Um check-list para saber se todos os modelos estão funcionando
+Um check-list para saber se todos os modelos e apis estão funcionando
+
 
 ## Antes de tudo você precisa instalar as seguintes ferramentas
 
