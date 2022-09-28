@@ -71,10 +71,15 @@ make run
 
 - Para escolhar qual restaurante você quer fazer o web-scrap dos produtos, basta apenas colocar o link dele do ifood na 'page_list', localizada em app/management/commands/ifood.py.
 - Pode ser apenas um link, ou uma lista de links, o web-scrapping será feito em toda a lista, seguindo a ordem em que foram colocados.
-- Feito isso, vamos rodar o web-scrapping com o comando make scrap-ifood
+- Feito isso, vamos rodar o web-scrapping com o comando:
+
+
+
 ```
 make scrap-ifood
 ```
+
+
 
 ## Dashboard
 
