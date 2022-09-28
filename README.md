@@ -1,6 +1,6 @@
 # iRating
 
-## Introduction
+## Introdução
 
 - iRating é um applicativo em API onde voce pode fazer o web-scrap dos produtos de qualquer restaurante do ifood e salvar no seu database. (Atenção: ele não pega produtos de outros tipos de lojas do ifood, como mercado e etc...)
 - Você pode criar diferentes profiles, cada profile podendo ter seus proprios reviews dos produtos e wishlist para futuros pedidos.
