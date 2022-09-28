@@ -82,7 +82,7 @@ make scrap-ifood
 ## Workers
 
 
-- Para ver se as tasks estão de fato na fila e sendo executadas, entramos na página do worker: '0.0.0.0:5556' e clicamos em tasks no menu superior
+- Para ver se as tasks estão de fato na fila e sendo executadas, entre na página do worker: '0.0.0.0:5556' e clique em tasks no menu superior
 
 
 <img src='https://user-images.githubusercontent.com/105290851/192879146-4c18d913-0d9e-4f92-999b-147256922ca4.png'>
