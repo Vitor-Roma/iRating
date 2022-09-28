@@ -59,6 +59,11 @@ make all
 make build
 ```
 
+- Para configurar os indices do ElasticSearch rode o comando make search
+
+```
+make search
+```
 - Pronto, tudo instalado. Nas proximas vezes, só precisará rodar o comando make run para subir os containers
 
 ```
