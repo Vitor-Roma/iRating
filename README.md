@@ -42,19 +42,19 @@
 ### Caso seja a sua primeira vez usando esse app, vai precisar rodar o comando make all para fazer a instalação e subir os containers.
 
 ```
-- make all 
+make all 
 ```
 
 ### Depois rodamos o comando make build para fazer as migrates.
 
 ```
-- make build
+make build
 ```
 
 ### Pronto. Nas proximas vezes, só precisará rodar o comando make run para subir os containers
 
 ```
--make run
+make run
 ```
 
 ## Web-Scrapping
@@ -77,7 +77,7 @@
 ## Para fazer os testes use o comando:
 
 ```
-- make test
+make test
 ```
 
 ## Para uma lista mais detalhada dos comandos, acesse o arquivo Makefile
