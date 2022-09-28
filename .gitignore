@@ -144,3 +144,7 @@ account/
 
 lambda_sqs/
 lambda_new/
+
+#github
+
+.github

@@ -5,7 +5,7 @@ build:
 	docker exec -i irating python3 manage.py migrate
 
 migrations:
-	python3 manage.py makemigrations
+	docker exec irating python3 manage.py makemigrations
 
 test:
 	docker exec irating python3 manage.py test --noinput
