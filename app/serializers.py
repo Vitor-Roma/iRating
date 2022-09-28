@@ -41,8 +41,14 @@ class RestaurantSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class RestaurantNameSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Restaurant
+        fields = ['name']
+
+
 class ProductSerializer(serializers.ModelSerializer):
-    restaurant = RestaurantSerializer(many=False, read_only=True)
+    restaurant = RestaurantNameSerializer(many=False, read_only=True)
     restaurant_id = serializers.UUIDField(write_only=True)
 
     class Meta:

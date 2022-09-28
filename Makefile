@@ -1,23 +1,27 @@
 all:
-	docker-compose up --build
-	docker-compose -f docker-compose-worker.yml up --build
+	docker-compose up --build -d
+	docker-compose -f docker-compose-worker.yml up --build -d
 build:
+	docker exec -i irating python3 manage.py migrate
+
+migrations:
 	python3 manage.py makemigrations
-	docker exec irating pip3 install --upgrade pip
-	docker exec irating pip3 install -r requirements.txt
-	docker exec irating python3 manage.py migrate
 
 test:
 	docker exec irating python3 manage.py test --noinput
 
 run:
-	docker-compose up
+	docker-compose down --remove-orphans
+	docker-compose up -d
+	docker-compose -f docker-compose-worker.yml up -d
 
-worker-up:
-	docker-compose -f docker-compose-worker.yml up
+
+worker-run:
+	docker-compose -f docker-compose-worker.yml up -d
 
 down:
 	docker-compose down --remove-orphans
+
 
 worker-down:
 	docker-compose -f docker-compose-worker.yml down
@@ -31,16 +35,10 @@ coverage:
 	docker exec irating coverage html
 
 attach:
-	docker attach -it irating
+	docker attach irating
 
 enter:
 	docker exec -it irating /bin/bash
 
 search:
 	docker exec -it irating python3 manage.py search_index --rebuild
-
-log:
-	docker-compose logs irating -f --tail 100
-
-worker-log:
-	docker-compose logs worker -f --tail 100

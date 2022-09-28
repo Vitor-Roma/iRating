@@ -11,10 +11,10 @@ class Command(BaseCommand):
     def get_page_list(self):
         page_list = [
             'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/five-burgers-freguesia-de-jacarepagua/9d041a66-51ee-4c7a-8e2e-9524076f7bf2',
-            'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/outback---metropolitano-jacarepagua/9b4b068e-dd01-4e6d-8069-70e707b80490',
-            'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/mcdonalds---shopping-metropolitano-barra-da-tijuca/a6450fe5-e1d5-4560-9ac4-6ed8971011af',
-            'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/burger-king---shopping-met-barra-barra-da-tijuca/47300a96-e638-4bdf-89ed-a5dc33b49f6b',
-            'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/subway-rio-2-jacarepagua/0556693a-53d1-4827-8c8f-319e8a317d88',
+            # 'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/outback---metropolitano-jacarepagua/9b4b068e-dd01-4e6d-8069-70e707b80490',
+            # 'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/mcdonalds---shopping-metropolitano-barra-da-tijuca/a6450fe5-e1d5-4560-9ac4-6ed8971011af',
+            # 'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/burger-king---shopping-met-barra-barra-da-tijuca/47300a96-e638-4bdf-89ed-a5dc33b49f6b',
+            # 'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/subway-rio-2-jacarepagua/0556693a-53d1-4827-8c8f-319e8a317d88',
             # 'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/lemax-hamburgueria----abelardo-bueno-barra-da-tijuca/1404b50d-b298-4f96-8feb-978e590bec0d',
             # 'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/santa-marta-sucos---jacarepagua-jacarepagua/b5d33961-7a2d-4d58-8056-9404a61f391c',
             # 'https://www.ifood.com.br/delivery/rio-de-janeiro-rj/rao-burger---jacarepagua-freguesia-jacarepagua/ba0ccda3-a2fc-49a5-ba47-ed98085a5b5c',

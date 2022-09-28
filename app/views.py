@@ -1,4 +1,6 @@
 import uuid
+
+from django.urls import reverse
 from rest_framework.response import Response
 from rest_framework import viewsets, status, generics, permissions
 from .serializers import UserRegisterSerializer, RestaurantSerializer, ProductSerializer, RatingSerializer, \
@@ -9,33 +11,35 @@ from django_elasticsearch_dsl_drf.viewsets import DocumentViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 from .documents import ProductDocument, ProfileDocument, RestaurantDocument, RatingDocument, WishlistDocument
 from django_elasticsearch_dsl_drf.filter_backends import FilteringFilterBackend, CompoundSearchFilterBackend
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 
 def home(request):
-    restaurant = Restaurant.objects.all()
-    number_of_rest = len(restaurant)
-    products = Product.objects.all()
-    number_of_prod = len(products)
-    rating = Rating.objects.all()
-    number_of_rating = len(rating)
-    wishlist = Wishlist.objects.all()
-    number_of_wishlist = len(wishlist)
-    data = {
+    try:
+        restaurant = Restaurant.objects.all()
+        number_of_rest = len(restaurant)
+        products = Product.objects.all()
+        number_of_prod = len(products)
+        rating = Rating.objects.all()
+        number_of_rating = len(rating)
+        wishlist = Wishlist.objects.all()
+        number_of_wishlist = len(wishlist)
+        data = {
             'number_rest': number_of_rest,
             'number_prod': number_of_prod,
             'number_rating': number_of_rating,
             'number_wishlist': number_of_wishlist,
             'restaurant_key': restaurant
-    }
-    return render(request, 'home.html', data)
+        }
+        return render(request, 'home.html', data)
+    except:
+        return render(request, 'home.html')
+
 
 def products(request):
     product = Product.objects.all()
     data = {'product_key': product}
     return render(request, 'products.html', data)
-
-
-
 
 
 class IndexView(generic.ListView):

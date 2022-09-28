@@ -1,4 +1,5 @@
 from __future__ import absolute_import, unicode_literals
+from urllib.request import urlretrieve
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -6,11 +7,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from iRating.celery import app
 from time import sleep
-import requests
 import os
 from .models import Product, Restaurant
 from django.core.files import File
-from urllib.request import urlretrieve
 import re
 
 
@@ -89,7 +88,7 @@ def find_products(menu_items, driver, page):
             'restaurant_picture': restaurant_image,
             'link': page,
         }
-        print('pegando: ', product, 'do ', restaurant_name)
+        print(restaurant_name.text, product['item_name'])
         products.append(product)
         if items.text == menu_items[-1].text:
             local = item_name.location
@@ -119,7 +118,6 @@ def scrap_products(page):
         for product in products:
             if product['item_name'] not in [p['item_name'] for p in all_products]:
                 all_products.append(product)
-                print('Pegando: ', product)
                 find = False
             else:
                 find = True
@@ -129,4 +127,4 @@ def scrap_products(page):
 
     for product in all_products:
         save_data(product)
-        print('saving: ', product)
+

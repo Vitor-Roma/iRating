@@ -24,12 +24,11 @@ urlpatterns = [
                   path('api/login/', TokenObtainPairView.as_view(), name='login'),
                   path('login/refresh/', TokenRefreshView.as_view(), name='refresh'),
                   path('api/sign-up/', Register.as_view(), name='sign-up'),
-                  path('api/', include(route.urls)),
-
+                  path('api/', include(route.urls), name='api-home'),
                   path('profile/search/', ProfileDocumentView.as_view({'get': 'list'}), name='search_profile'),
-                  path('restaurant/search/', RestaurantDocumentView.as_view({'get': 'list'}),
+                  path('restaurants/search/', RestaurantDocumentView.as_view({'get': 'list'}),
                        name='search_restaurants'),
-                  path('product/search/', ProductDocumentView.as_view({'get': 'list'}), name='search_product'),
+                  path('products/search/', ProductDocumentView.as_view({'get': 'list'}), name='search_product'),
                   path('rating/search/', RatingDocumentView.as_view({'get': 'list'}), name='search_rating'),
                   path('wishlist/search/', WishlistDocumentView.as_view({'get': 'list'}), name='search_wishlist'),
 

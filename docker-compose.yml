@@ -9,6 +9,21 @@ services:
       - ./:/usr/src/app
     ports:
       - "8000:8000"
+    depends_on:
+      - iratingdb
+
+  iratingdb:
+    image: postgres:14.3-alpine
+    container_name: iratingdb
+    hostname: iratingdb
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: 'root'
+      POSTGRES_PASSWORD: '123'
+      POSTGRES_DB: 'iratingdb'
+    volumes:
+      - irating_data:/var/lib/postgresql/data
 
   rabbitmq:
     container_name: rabbitmq

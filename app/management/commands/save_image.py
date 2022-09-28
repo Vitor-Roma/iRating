@@ -12,6 +12,7 @@ self.photo.save(
 
 self.save()
 
+
 class CachedImage(models.Model):
     url = models.CharField(max_length=255, unique=True)
     photo = models.ImageField(upload_to=photo_path, blank=True)

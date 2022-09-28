@@ -105,12 +105,12 @@ WSGI_APPLICATION = 'iRating.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': env('POSTGRES_ENGINE'),
-        'NAME': env('POSTGRES_DATABASE'),
-        'USER': env('POSTGRES_USER'),
-        'PASSWORD': env('POSTGRES_PASSWORD'),
-        'HOST': env('POSTGRES_HOST'),
-        'PORT': env('POSTGRES_PORT'),
+        'ENGINE': os.environ.get('POSTGRES_ENGINE'),
+        'NAME': os.environ.get('POSTGRES_DATABASE'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_HOST'),
+        'PORT': os.environ.get('POSTGRES_PORT'),
     }
 }
 
@@ -148,19 +148,19 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
-AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
-AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-AWS_CUSTOM_DOMAIN = env('AWS_CUSTOM_DOMAIN')
-AWS_S3_FILE_OVERWRITE = True
+# AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+# AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+# AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+# AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+# AWS_CUSTOM_DOMAIN = env('AWS_CUSTOM_DOMAIN')
+# AWS_S3_FILE_OVERWRITE = True
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATIC_FILE_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATIC_FILE_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
 
 STATIC_URL = 'static/'
-MEDIA_URL = f'https://{AWS_CUSTOM_DOMAIN}/media/'
+MEDIA_URL = 'media/'
 
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

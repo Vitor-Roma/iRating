@@ -50,15 +50,9 @@ class Rating(models.Model):
     side_dish = models.IntegerField()
     comment = models.CharField(max_length=9999)
 
-    def __str__(self):
-        return self.name
-
 
 class Wishlist(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False, unique=True)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=False, related_name='wishlist_profile')
     product = models.ForeignKey(Product, on_delete=models.CASCADE, blank=True, null=False, related_name='wishlist_product')
     note = models.CharField(max_length=9999)
-
-    def __str__(self):
-        return self.name
