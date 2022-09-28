@@ -10,7 +10,7 @@
 - Web-scrap de qualquer restaurante do ifood (não funciona com mercado) para pegar todos os produtos disponíveis
 - Reviews e comentários sobre produtos
 - Wishlist para futuros pedidos
-- Criação de usuário e senha para avaliaçẽs personalizadas
+- Criação de usuário e senha para avaliaçoẽs personalizadas
 - Consumir por API
 - Dashboard em html mostrando os dados
 
@@ -59,6 +59,11 @@ make all
 make build
 ```
 
+- Para configurar os indices do ElasticSearch rode o comando make search
+
+```
+make search
+```
 - Pronto, tudo instalado. Nas proximas vezes, só precisará rodar o comando make run para subir os containers
 
 ```
@@ -71,15 +76,35 @@ make run
 
 - Para escolhar qual restaurante você quer fazer o web-scrap dos produtos, basta apenas colocar o link dele do ifood na 'page_list', localizada em app/management/commands/ifood.py.
 - Pode ser apenas um link, ou uma lista de links, o web-scrapping será feito em toda a lista, seguindo a ordem em que foram colocados.
+- Feito isso, vamos para rodar o web-scrap use o comando:
+
+
+
+```
+make scrap-ifood
+```
+
+## Workers
+
+
+- Para ver se as tasks estão de fato na fila e sendo executadas, entre na página do worker: '0.0.0.0:5556' e clique em tasks no menu superior
+
+
+<img src='https://user-images.githubusercontent.com/105290851/192879146-4c18d913-0d9e-4f92-999b-147256922ca4.png'>
+
 
 ## Dashboard
 
-<img src='https://user-images.githubusercontent.com/105290851/192857452-2d142c18-32b0-4903-a8e1-bda72c1434b8.png'>
-<img src='https://user-images.githubusercontent.com/105290851/192857454-c7f4cffb-d151-44f6-bc71-2cbbb554940a.png'>
-
 - Agora acessamos a Home page, um html básico para mostrar os dados que foram salvos no banco de dados no link: 0.0.0.0:8000
+
+<img src='https://user-images.githubusercontent.com/105290851/192857452-2d142c18-32b0-4903-a8e1-bda72c1434b8.png'>
+
 - Também podemos acessar a lista dos produtos no link '/products' ou clicando em 'products' no dashboard
 - Os demais links nos levam direto para a página de API
+
+
+<img src='https://user-images.githubusercontent.com/105290851/192857454-c7f4cffb-d151-44f6-bc71-2cbbb554940a.png'>
+
 
 
 ## Para fazer os testes use o comando make test (Atenção: o projeto precisa estar rodando)
