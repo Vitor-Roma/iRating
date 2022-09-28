@@ -10,7 +10,7 @@
 - Web-scrap de qualquer restaurante do ifood (não funciona com mercado) para pegar todos os produtos disponíveis
 - Reviews e comentários sobre produtos
 - Wishlist para futuros pedidos
-- Criação de usuário e senha para avaliaçẽs personalizadas
+- Criação de usuário e senha para avaliaçoẽs personalizadas
 - Consumir por API
 - Dashboard em html mostrando os dados
 
