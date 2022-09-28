@@ -148,3 +148,4 @@ lambda_new/
 #github
 
 .github
+/app/static/
