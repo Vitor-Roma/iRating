@@ -16,21 +16,21 @@
 
 ## Tecnologias
 
-- Docker-Compose
-- DockerFile
-- MakeFile
-- Elastic Search
-- Celery
-- Upload de arquivos
-- Testes
+- Docker: O projeto rodando inteiramente dentro do container previne que por algum motivo não rode em algum computador.
+- Docker-Compose: Usado para gerenciar todos os containers
+- MakeFile: Arquivo de atalho para nossos comandos
+- ElasticSearch: Mecanismo de busca de dados para indexar muito conteúdo com velocidade e escalabilidade
+- Celery: Serviço de workers em fila para acelerar o processo do web-scrapping em tarefas muito grandes
+- Upload de arquivos: Salva as imagens dos produtos e dos restaurantes
+- Testes: Um check-list para saber se todos os modelos estão funcionando
 
-## Instalação
+## Antes de tudo você precisa instalar as seguintes ferramentas
 
 ```python
 - Docker
 - Docker Compose
 - Makefile
-- Postman (para melhor vizualização da api)
+- Postman (para melhor visualização da api)
 ```
 
 
@@ -39,7 +39,7 @@
 - Renomeie seu arquivo '.env_sample' para '.env' para conectar ao banco de dados
 - Abra o terminal na pasta raiz e siga os passos abaixo:
 
-- Para fazer a instalação e construção dos containers, use o comando make all
+- Para fazer a instalação e construção dos containers, use o comando make all (esse processo pode demorar alguns minutos dependendo da sua internet)
 
 ```
 make all 
@@ -74,7 +74,7 @@ make run
 - Os demais links nos levam direto para a página de API
 
 
-## Para fazer os testes use o comando:
+## Para fazer os testes use o comando make test (Atenção: o projeto precisa estar rodando)
 
 ```
 make test
