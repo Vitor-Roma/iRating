@@ -25,7 +25,7 @@ Arquivo de atalho para nossos comandos
 - ElasticSearch:
  Mecanismo de busca de dados para indexar muito conteúdo com velocidade e escalabilidade
 - Celery: 
-Serviço de workers em fila para acelerar o processo do web-scrapping em tarefas muito grandes
+Serviço de workers em fila para acelerar o processo do web-scrapping , desta forma podendo escalar infinitamente utilizando workers espalhados por diversas maquinas
 - Upload de arquivos: 
 Salva as imagens dos produtos e dos restaurantes
 - Testes: 
