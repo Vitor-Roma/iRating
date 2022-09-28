@@ -79,16 +79,27 @@ make run
 make scrap-ifood
 ```
 
+## Workers
+
+
+- Para ver se as tasks estão de fato na fila e sendo executadas, entramos na página do worker: '0.0.0.0:5556' e clicamos em tasks no menu superior
+
+
+<img src='https://user-images.githubusercontent.com/105290851/192879146-4c18d913-0d9e-4f92-999b-147256922ca4.png'>
 
 
 ## Dashboard
 
-<img src='https://user-images.githubusercontent.com/105290851/192857452-2d142c18-32b0-4903-a8e1-bda72c1434b8.png'>
-<img src='https://user-images.githubusercontent.com/105290851/192857454-c7f4cffb-d151-44f6-bc71-2cbbb554940a.png'>
-
 - Agora acessamos a Home page, um html básico para mostrar os dados que foram salvos no banco de dados no link: 0.0.0.0:8000
+
+<img src='https://user-images.githubusercontent.com/105290851/192857452-2d142c18-32b0-4903-a8e1-bda72c1434b8.png'>
+
 - Também podemos acessar a lista dos produtos no link '/products' ou clicando em 'products' no dashboard
 - Os demais links nos levam direto para a página de API
+
+
+<img src='https://user-images.githubusercontent.com/105290851/192857454-c7f4cffb-d151-44f6-bc71-2cbbb554940a.png'>
+
 
 
 ## Para fazer os testes use o comando make test (Atenção: o projeto precisa estar rodando)
