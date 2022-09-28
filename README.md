@@ -16,13 +16,20 @@
 
 ## Tecnologias
 
-- Docker: O projeto rodando inteiramente dentro do container previne que por algum motivo não rode em algum computador.
-- Docker-Compose: Usado para gerenciar todos os containers
-- MakeFile: Arquivo de atalho para nossos comandos
-- ElasticSearch: Mecanismo de busca de dados para indexar muito conteúdo com velocidade e escalabilidade
-- Celery: Serviço de workers em fila para acelerar o processo do web-scrapping em tarefas muito grandes
-- Upload de arquivos: Salva as imagens dos produtos e dos restaurantes
-- Testes: Um check-list para saber se todos os modelos estão funcionando
+- Docker: 
+O projeto rodando inteiramente dentro do container previne que por algum motivo não rode em algum computador.
+- Docker-Compose: 
+Usado para gerenciar todos os containers
+- MakeFile: 
+Arquivo de atalho para nossos comandos
+- ElasticSearch:
+ Mecanismo de busca de dados para indexar muito conteúdo com velocidade e escalabilidade
+- Celery: 
+Serviço de workers em fila para acelerar o processo do web-scrapping em tarefas muito grandes
+- Upload de arquivos: 
+Salva as imagens dos produtos e dos restaurantes
+- Testes: 
+Um check-list para saber se todos os modelos estão funcionando
 
 ## Antes de tudo você precisa instalar as seguintes ferramentas
 
