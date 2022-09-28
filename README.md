@@ -39,11 +39,22 @@
 - Renomeie seu arquivo '.env_sample' para '.env' para conectar ao banco de dados
 - Abra o terminal na pasta raiz e siga os passos abaixo:
 
+### Caso seja a sua primeira vez usando esse app, vai precisar rodar o comando make all para fazer a instalação e subir os containers.
+
 ```
-Caso seja a primeira vez usando esse container, precisaremos usar o código:
-- make all (Somente para a primeira vez usando o código, para fazer a construção, instalação e subir o container) para as demais vezes, usar o make run.
-- make run (Para subir o container)
-- make build (Para fazer as migrates)
+- make all 
+```
+
+### Depois rodamos o comando make build para fazer as migrates.
+
+```
+- make build
+```
+
+### Pronto. Nas proximas vezes, só precisará rodar o comando make run para subir os containers
+
+```
+-make run
 ```
 
 ## Web-Scrapping
@@ -68,6 +79,10 @@ Caso seja a primeira vez usando esse container, precisaremos usar o código:
 ```
 - make test
 ```
+
+## Para uma lista mais detalhada dos comandos, acesse o arquivo Makefile
+
+<img src='https://user-images.githubusercontent.com/105290851/192859164-75dd727f-1f98-496e-b809-16f77d0fe5a9.png'>
 
 ## API End-Points
 
