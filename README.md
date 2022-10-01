@@ -127,9 +127,9 @@ make test
 <img src='https://user-images.githubusercontent.com/105290851/192857459-376861b8-8e52-420d-a2ac-e3ca5662648a.png'>
 
 
-    0.0.0.0:8000 (Home page)
-    0.0.0.0:8000/api/sign-up (Criar Usuário)
-    0.0.0.0:8000/api/login (Pegar seu token de acesso)
+    0.0.0.0:8000/ (Home page)
+    0.0.0.0:8000/api/sign-up/ (Criar Usuário)
+    0.0.0.0:8000/api/login/ (Pegar seu token de acesso)
     0.0.0.0:8000/api/profile/ (Acesso aos profiles)  
     0.0.0.0:8000/api/restaurants/ (Acesso aos restaurantes)  
     0.0.0.0:8000/api/products/ (Acesso aos produtos)  
