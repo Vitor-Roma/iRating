@@ -27,7 +27,7 @@ def save_data(product):
                 os.path.basename(product['restaurant_picture']),
                 File(open(rest_result[0], 'rb'))
             )
-            restaurant.save()
+        restaurant.save()
     try:
         product_db = Product.objects.get(name=product['item_name'])
     except:
@@ -40,14 +40,14 @@ def save_data(product):
                 File(open(result[0], 'rb'))
             )
 
-            product_db.save()
+        product_db.save()
     return True
 
 
 def find_products(menu_items, driver, page):
     products = []
     for items in menu_items:
-        sleep(2)
+        sleep(5)
         try:
             item_name = WebDriverWait(items, 100).until(EC.presence_of_element_located((By.TAG_NAME, 'h3')))
         except:
@@ -106,11 +106,12 @@ def scrap_products(page):
     chrome_options.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Chrome(options=chrome_options)
     driver.get(page)
-    sleep(2)
+    sleep(10)
     all_products = []
     all_menus = WebDriverWait(driver, 100).until(EC.presence_of_element_located((By.CLASS_NAME, 'restaurant__fast-menu')))
     local = all_menus.location
     driver.execute_script(f"window.scrollTo(0, {local['y']})")
+    sleep(3)
     menu_items = WebDriverWait(all_menus, 100).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'li[data-test-id="restaurant-menu-group-item"]')))
     while True:
         find = False

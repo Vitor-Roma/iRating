@@ -25,3 +25,5 @@ elasticsearch-dsl==7.4.0
 boto3==1.24.25
 django-storages==1.12.3
 chalice==1.27.1
+django-cors-headers==3.13.0
+

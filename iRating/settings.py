@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     'django_elasticsearch_dsl',
     'django_elasticsearch_dsl_drf',
     'storages',
+    'corsheaders',
+
 
 ]
 
@@ -76,11 +78,13 @@ SIMPLE_JWT = {
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'iRating.urls'
@@ -174,6 +178,8 @@ ELASTICSEARCH_DSL = {
         'size': 1000,
     }
 }
+
+CORS_ALLOW_ALL_ORIGINS = True
 
 # CELERY_BEAT_SCHEDULE = {
 #     "web_srap_ifood": {
