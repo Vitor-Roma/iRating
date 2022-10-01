@@ -27,7 +27,7 @@ def save_data(product):
                 os.path.basename(product['restaurant_picture']),
                 File(open(rest_result[0], 'rb'))
             )
-        restaurant.save()
+            restaurant.save()
     try:
         product_db = Product.objects.get(name=product['item_name'])
     except:
@@ -39,8 +39,7 @@ def save_data(product):
                 os.path.basename(product['item_picture']),
                 File(open(result[0], 'rb'))
             )
-
-        product_db.save()
+            product_db.save()
     return True
 
 
